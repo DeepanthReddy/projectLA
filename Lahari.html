@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Surprise</title>
+  <!-- Add Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body, html{
+
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+  
+    .background {
+      background-image: url('./fstback.gif');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    
+    .envelope {
+      
+      font-size: 400px;
+      cursor: pointer;
+      color: #ff4d4d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* "OPEN" Text */
+    .open-text {
+      position: absolute;
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: #fff;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    
+    .heart {
+      position: absolute;
+      font-size: 40px;
+      color: #ff4d4d;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: flyOut 1s ease-out forwards;
+    }
+
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Heart Fly Out Animation */
+    @keyframes flyOut {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -150%) scale(1.5);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -250%) scale(1);
+      }
+    }
+
+    .second-page {
+      background-image: url('./secbackg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .message-card {
+      background-image: url('./background.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+    }
+
+    .message-card h1 {
+      font-family: 'Great Vibes'
+      font-size: 40px;
+      color: #ff4d4d;
+      margin: 0;
+    }
+
+    .message-card h3 {
+      font-family: 'Dancing Script'
+      font-size: 28px;
+      color: #333;
+      margin: 20px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- First Page -->
+  <div class="background">
+    <div class="envelope" id="envelope" onclick="openEnvelope()">
+      💌
+      <div class="open-text">CLICK</div>
+      <div class="heart" id="heart">❤️</div>
+    </div>
+  </div>
+
+  <div class="second-page" id="secondPage">
+    <div class="message-card">
+      <h1 style="text-align: center;"> 💖 </h1>
+      <h3>I loved you from every inch of my soul
+        Your like a star i could never touch
+        But just praise from afar
+        You are infront of me but miles away
+        I know these flames inside me only burn me and you won't know
+        But i always dreamt of our happily ever after my silly heart could hear you confessing your love even when you just said "HI"
+        That eye contact nothing meant for you i know but it made my day better 
+        My heart is crushed i still love you with every crushed part of my Heart!!
+      </h3>
+        <h2 style="text-align: center;">Missing you is the part of my daily routine🤍</h2>
+        <h1 style="text-align: center;"> Happy Valentine's Day! 🌹 </h1>
+      
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="WhatsApp Audio 2025-02-14 at 1.28.59 AM.mpeg" type="audio/mpeg"> 
+  </audio>
+
+  <script>
+    function openEnvelope() {
+      const envelope = document.getElementById('envelope');
+      const heart = document.getElementById('heart');
+      const secondPage = document.getElementById('secondPage');
+
+      // Trigger the heart animation
+      heart.style.opacity = 1;
+
+      // Wait for the animation to complete, then show the second page
+      setTimeout(() => {
+        document.querySelector('.background').style.display = 'none';
+        secondPage.style.display = 'flex';
+        document.getElementById('backgroundAudio').play();
+      }, 1000); // Delay matches the animation duration
+    }
+  </script>
+</body>
+</html>
